@@ -28,14 +28,51 @@ Please reachout Oksana (otolstykh@readdle.com) if you have any questions.
 - Environment:
 
 - What parts of app will be tested:
-
+1. login screen
+2. task list screen
+3. subtask list screen
 
 # LIST OF TEST CASES: 
 // Only summaries of tests: e.g. 
-- Perform login with empty password field
+Login screen:
+- Login button disabled if email and/or password field is empty
+- Error alert appears if email has an incorrect format 
+- Login with correct creds shows Logging In screen, brings Tasks list screen after successful login
+
+Task list screen
+- Verify there are tasks in the table
+- Verify all the buttons are present (logout, complete all, sort by name), navbar title is correct
+- Completing the task makes is greyed out, checkbox becomes checked out and vice versa after tapping once again
+- Logout button shows logout confirmation alert, brings Login screen after confirmation
+- Complete All button checks all tasks as completed
+- Sort by Name button sorts tasks correctly, does not change the order of tasks
+
+Subtasks list screen
+- Completing a task with subtasks also completes all subtasks
+- Unchecking a task with subtasks also unchecks all subtasks
+- Changing subtasks status preserves its status if going going back to the main screen and to the sublist screen once again
+- Nav bar title in subtasks list view matches with the task name 
+
 
 
 
 # LIST OF DISCOVERED ISSUES:
 // Only summaries of bug reports: e.g.
 - Login can be performed with empty password field (not a real issue)
+
+- Login with valid creds can throw an error: "Unexpected login error occured"
+
+- 'Sort by Name' button can change the state of the tasks (from not completed to completed)
+- 'Sort by Name' button can incorrectly sort tasks by name
+- 'Complete All' button can make tasks only change text to grey out without changing the checkmark
+- Checking all tasks manually does not make 'Complete All' button change its name to Cancel All and vice versa
+- 'Complete All' button can sometimes not change to the 'Cancel All' button
+- Checking a task can sometimes trigger a completion of a different (previous?) incomplete task or uncheck an already completed task
+
+- 
+
+
+
+  
+add envvars to email/password
+- 
