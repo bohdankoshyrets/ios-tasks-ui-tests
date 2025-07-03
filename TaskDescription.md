@@ -45,7 +45,7 @@ Task list screen
 - Completing the task makes is greyed out, checkbox becomes checked out and vice versa after tapping once again
 - Logout button shows logout confirmation alert, brings Login screen after confirmation
 - Complete All button checks all tasks as completed
-- Sort by Name button sorts tasks correctly, does not change the order of tasks
+- Sort by Name button sorts tasks correctly
 
 Subtasks list screen
 - Completing a task with subtasks also completes all subtasks
@@ -58,7 +58,6 @@ Subtasks list screen
 
 # LIST OF DISCOVERED ISSUES:
 // Only summaries of bug reports: e.g.
-- Login can be performed with empty password field (not a real issue)
 
 - Login with valid creds can throw an error: "Unexpected login error occured"
 
@@ -69,7 +68,7 @@ Subtasks list screen
 - 'Complete All' button can sometimes not change to the 'Cancel All' button
 - Checking a task can sometimes trigger a completion of a different (previous?) incomplete task or uncheck an already completed task
 
-- 
+- In Dark mode some task titles are illegible 
 
 
 
