@@ -43,4 +43,8 @@ class BaseRobot {
         }
         return self
     }
+    
+    var isRunningOniPad: Bool {
+        return UIDevice.current.userInterfaceIdiom == .pad
+   }
 }

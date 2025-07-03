@@ -24,13 +24,18 @@ Please reachout Oksana (otolstykh@readdle.com) if you have any questions.
 
 
 # TEST PLAN: 
+1. Exploratory testing
+2. Functional (positive/negative paths)
+3. Accessibility testing
 
 - Environment:
+iOS Simulator: iPhone 16 (18.5)
+iPadOS Simulator: iPad A16 (18.5)
 
 - What parts of app will be tested:
-1. login screen
-2. task list screen
-3. subtask list screen
+1. Login screen
+2. Task list screen
+3. Subtask list screen
 
 # LIST OF TEST CASES: 
 // Only summaries of tests: e.g. 
@@ -42,18 +47,17 @@ Login screen:
 Task list screen
 - Verify there are tasks in the table
 - Verify all the buttons are present (logout, complete all, sort by name), navbar title is correct
-- Completing the task makes is greyed out, checkbox becomes checked out and vice versa after tapping once again
+- Completing the task makes it greyed out, checkbox becomes checked out and vice versa after tapping once again
 - Logout button shows logout confirmation alert, brings Login screen after confirmation
 - Complete All button checks all tasks as completed
 - Sort by Name button sorts tasks correctly
+- States of tasks persist when we navigate to subtasks screen and back // TODO:
 
 Subtasks list screen
 - Completing a task with subtasks also completes all subtasks
 - Unchecking a task with subtasks also unchecks all subtasks
 - Changing subtasks status preserves its status if going going back to the main screen and to the sublist screen once again
 - Nav bar title in subtasks list view matches with the task name 
-
-
 
 
 # LIST OF DISCOVERED ISSUES:
@@ -63,15 +67,10 @@ Subtasks list screen
 
 - 'Sort by Name' button can change the state of the tasks (from not completed to completed)
 - 'Sort by Name' button can incorrectly sort tasks by name
-- 'Complete All' button can make tasks only change text to grey out without changing the checkmark
+- 'Complete All' button can make tasks only change text to greyed out without changing the checkmark
 - Checking all tasks manually does not make 'Complete All' button change its name to Cancel All and vice versa
 - 'Complete All' button can sometimes not change to the 'Cancel All' button
 - Checking a task can sometimes trigger a completion of a different (previous?) incomplete task or uncheck an already completed task
 
-- In Dark mode some task titles are illegible 
-
-
-
-  
-add envvars to email/password
-- 
+- In Dark mode some task titles are illegible
+- In Dark mode unchecked checkmarks are not visible

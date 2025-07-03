@@ -61,6 +61,7 @@
 		36E85B9B16DE5F5000F6BA8F /* TasksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TasksViewController.m; sourceTree = "<group>"; };
 		36E85B9E16DE614E00F6BA8F /* TaskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskTableViewCell.h; sourceTree = "<group>"; };
 		36E85B9F16DE614E00F6BA8F /* TaskTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskTableViewCell.m; sourceTree = "<group>"; };
+		493DFB2E2E16D54F00AE4776 /* Tasks.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = Tasks.xctestplan; path = TasksUITests/Tasks.xctestplan; sourceTree = "<group>"; };
 		4D706CC02E1531D0009101F7 /* TasksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TasksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C380DF628D1ED8E008F9316 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		5C380DF728D1ED8E008F9316 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
@@ -106,6 +107,7 @@
 		36CF557F16DD7EAE0028A8D1 = {
 			isa = PBXGroup;
 			children = (
+				493DFB2E2E16D54F00AE4776 /* Tasks.xctestplan */,
 				ABD83A6A29151D3B0082C96D /* TaskDescription.md */,
 				36CF559416DD7EAE0028A8D1 /* Tasks */,
 				4D706CC12E1531D0009101F7 /* TasksUITests */,

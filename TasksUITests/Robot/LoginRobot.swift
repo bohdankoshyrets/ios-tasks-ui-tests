@@ -15,35 +15,35 @@ class LoginRobot: BaseRobot {
     
     // MARK: Actions
     @discardableResult
-    func login(email: String, password: String) -> Self {
-        enterEmail(email: email)
-        enterPassword(password: password)
-        dismissKeyboardByTappingReturnKey()
-        tapLoginButton()
-        return self
-    }
-    
-    @discardableResult
     func logInIfLoggedOut() -> Self {
         if loginButton.exists {
-            login(email: Constants.ValidCreds.username,
-                  password: Constants.ValidCreds.password)
+            enterEmail(email: Constants.ValidCreds.username)
+            enterPassword(password: Constants.ValidCreds.password)
+            tapLoginButton()
+            
+            LoginInProgressRobot(app: app)
+                .assertLoginInProgressScreen()
+                .waitToFinishLogin()
         }
         return self
     }
 
     @discardableResult
     func enterEmail(email: String) -> Self {
-        emailTextField.tap()
-        emailTextField.typeText(email)
+        enterTextToTextField(emailTextField, email)
         return self
     }
     
     @discardableResult
     func enterPassword(password: String) -> Self {
-        passwordTextField.tap()
-        passwordTextField.typeText(password)
+        enterTextToTextField(passwordTextField, password)
         return self
+    }
+    
+    private func enterTextToTextField(_ textField: XCUIElement, _ text: String) {
+        textField.tap()
+        textField.typeText(text)
+        textField.typeText(XCUIKeyboardKey.return.rawValue)
     }
     
     @discardableResult

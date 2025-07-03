@@ -18,7 +18,7 @@ extension XCUIElement {
     var checkmarkImage: XCUIElement {
         let checkmark = self.images["cell_image_view"].firstMatch
         XCTAssertTrue(checkmark.exists, "There's no checkmark image for task cell: \(self.staticTexts.firstMatch.label)")
-        return self
+        return checkmark
     }
     
     var stringValue: String? {

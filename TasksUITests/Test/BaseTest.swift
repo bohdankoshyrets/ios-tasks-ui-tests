@@ -11,6 +11,10 @@ import XCTest
 class BaseTest: XCTestCase {
     let app = XCUIApplication()
     
+    override class var runsForEachTargetApplicationUIConfiguration: Bool {
+        true
+    }
+    
     override func setUp() {
         continueAfterFailure = false
     }

@@ -66,6 +66,40 @@ class TasksTests: BaseTest {
             .tapSortByNameButton()
             .assertTasksAreSortedByName()
     }
+    
+    func test_cancelAllButtonAppearsAfterCompleteAll() throws {
+        TasksRobot(app: app)
+            .assertAllTasksAre(.notCompleted)
+            .tapCompleteAllTasksButton()
+            .assertAllTasksAre(.completed)
+            .tapCancelAllTasksButton()
+            .assertAllTasksAre(.notCompleted)
+    }
+    
+    func test_tasksPersistAfterNavigatingToSubtasksScreen() throws {
+        TasksRobot(app: app)
+            .assertAllTasksAre(.notCompleted)
+            .toggleTask(withTitle: Constants.Tasks.task1)
+            .toggleTask(withTitle: Constants.Tasks.task2)
+            .toggleTask(withTitle: Constants.Tasks.task3)
+            .assertTaskIs(.completed, withTitle: Constants.Tasks.task1)
+            .assertTaskIs(.completed, withTitle: Constants.Tasks.task2)
+            .assertTaskIs(.completed, withTitle: Constants.Tasks.task3)
+            .assertTaskIs(.notCompleted, withTitle: Constants.Tasks.task4)
+            .assertTaskIs(.notCompleted, withTitle: Constants.Tasks.task5)
+            .tapMoreInfoButton(forTask: Constants.taskWithSubtasks)
+        
+        SubtasksRobot(app: app)
+            .assertAllTasksAre(.notCompleted)
+            .goBack()
+        
+        TasksRobot(app: app)
+            .assertTaskIs(.completed, withTitle: Constants.Tasks.task1)
+            .assertTaskIs(.completed, withTitle: Constants.Tasks.task2)
+            .assertTaskIs(.completed, withTitle: Constants.Tasks.task3)
+            .assertTaskIs(.notCompleted, withTitle: Constants.Tasks.task4)
+            .assertTaskIs(.notCompleted, withTitle: Constants.Tasks.task5)
+    }
 }
     
     

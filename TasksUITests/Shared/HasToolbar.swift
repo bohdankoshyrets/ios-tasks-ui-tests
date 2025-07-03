@@ -27,6 +27,8 @@ extension HasToolbar {
     
     @discardableResult
     func tapCancelAllTasksButton() -> Self {
+        XCTAssertTrue(cancelAllTasksButton.exists,
+                      "Cancel All tasks button does didn't appear in the toolbar")
         cancelAllTasksButton.tap()
         return self
     }

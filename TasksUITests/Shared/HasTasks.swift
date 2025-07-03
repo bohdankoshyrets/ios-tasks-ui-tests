@@ -22,7 +22,6 @@ protocol HasTasks: BaseRobot {
 // MARK: Actions
 extension HasTasks {
     var taskCells: XCUIElementQuery { app.cells }
-    
     func getTaskCell(withTitle title: String) -> XCUIElement {
         let query = taskCells.containing(.staticText, identifier: title)
         XCTAssertEqual(query.count, 1, "Expected exactly one task cell with title '\(title)', but found \(query.count)")
@@ -49,7 +48,6 @@ extension HasTasks {
         return self
     }
     
-    // TODO: Refactor "cell_image_view"
     @discardableResult
     func assertTaskIs(_ status: TaskStatus, withTitle title: String) -> Self {
         let taskCell = getTaskCell(withTitle: title)
@@ -66,11 +64,6 @@ extension HasTasks {
     // TODO: Add stringValue property
     @discardableResult
     func assertAllTasksAre(_ status: TaskStatus) -> Self {
-//        XCTAssertTrue(taskCells.allElementsBoundByIndex.allSatisfy { $0.images["cell_image_view"].stringValue == status.rawValue })
-        let screenshot = app.screenshot().pngRepresentation
-        let screenshot2 = app.screenshot().pngRepresentation
-        XCTAssertEqual(screenshot, screenshot2)
-                
         for taskCell in taskCells.allElementsBoundByIndex {
             XCTAssertEqual(
                 taskCell.checkmarkImage.stringValue,

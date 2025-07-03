@@ -17,12 +17,12 @@ class SubtasksTests: BaseTest {
         LoginRobot(app: app)
             .launchApp()
             .logInIfLoggedOut()
-        
+                
         TasksRobot(app: app)
             .assertTasksScreen()
     }
 
-    func test_canOpenSubtasksScreen() {
+    func test_canOpenSubtasksScreen() throws {
         TasksRobot(app: app)
             .tapMoreInfoButton(forTask: taskTitle)
         
@@ -31,10 +31,11 @@ class SubtasksTests: BaseTest {
             .assertANumberOfTasks(Constants.numberOfSubtasks)
     }
     
-    func test_subtasksCompleteWhenParentTaskCompletes() {
+    func test_subtasksCompleteWhenParentTaskCompletes() throws {
         TasksRobot(app: app)
             .assertTasksScreen()
             .toggleTask(withTitle: taskTitle)
+            .assertTaskIs(.completed, withTitle: taskTitle)
             .tapMoreInfoButton(forTask: taskTitle)
         
         SubtasksRobot(app: app)
@@ -42,7 +43,7 @@ class SubtasksTests: BaseTest {
             .assertAllTasksAre(.completed)
     }
     
-    func test_completingAllSubtasksCompletesParentTask() {
+    func test_completingAllSubtasksCompletesParentTask() throws {
         TasksRobot(app: app)
             .assertTaskIs(.notCompleted, withTitle: taskTitle)
             .tapMoreInfoButton(forTask: taskTitle)
@@ -54,4 +55,17 @@ class SubtasksTests: BaseTest {
         TasksRobot(app: app)
             .assertTaskIs(.completed, withTitle: taskTitle)
     }
+    
+    func test_cancelAllButtonAppearsAfterCompleteAll() throws {
+        TasksRobot(app: app)
+            .tapMoreInfoButton(forTask: taskTitle)
+        
+        SubtasksRobot(app: app)
+            .assertAllTasksAre(.notCompleted)
+            .tapCompleteAllTasksButton()
+            .assertAllTasksAre(.completed)
+            .tapCancelAllTasksButton()
+            .assertAllTasksAre(.notCompleted)
+    }
+
 }

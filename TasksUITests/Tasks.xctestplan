@@ -1,0 +1,32 @@
+{
+  "configurations" : [
+    {
+      "id" : "2C493C98-9899-416A-BAC5-C029835F0700",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "skippedTests" : [
+        "BaseTest",
+        "TasksUITests",
+        "TasksUITests\/testExample()",
+        "TasksUITests\/testLaunchPerformance()",
+        "TasksUITestsLaunchTests"
+      ],
+      "target" : {
+        "containerPath" : "container:Tasks.xcodeproj",
+        "identifier" : "4D706CBF2E1531D0009101F7",
+        "name" : "TasksUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

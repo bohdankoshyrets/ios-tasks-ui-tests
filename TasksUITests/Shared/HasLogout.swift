@@ -15,7 +15,14 @@ protocol HasLogout: BaseRobot {
 
 extension HasLogout {
     var navbar: XCUIElement { app.navigationBars.firstMatch }
-    var logoutButton: XCUIElement { navbar.buttons["Logout"].firstMatch }
+    var toolbar: XCUIElement { app.toolbars.firstMatch }
+    var logoutButton: XCUIElement {
+        if isRunningOniPad {
+            return toolbar.buttons["Logout"].firstMatch
+        } else {
+            return navbar.buttons["Logout"].firstMatch
+        }
+    }
     var logoutAlertButton: XCUIElement { alerts.buttons["Logout"].firstMatch }
 
     @discardableResult

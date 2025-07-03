@@ -25,7 +25,6 @@ class LoginTests: BaseTest {
         LoginRobot(app: app)
             .enterEmail(email: Constants.ValidCreds.username)
             .enterPassword(password: Constants.ValidCreds.password)
-            .dismissKeyboardByTappingReturnKey()
             .verifyIfLoginButtonEnabled()
             .tapLoginButton()
         
@@ -41,7 +40,7 @@ class LoginTests: BaseTest {
         LoginRobot(app: app)
             .enterEmail(email: Constants.InvalidCreds.username)
             .enterPassword(password: Constants.InvalidCreds.password)
-            .dismissKeyboardByTappingReturnKey()
+            .verifyIfLoginButtonEnabled()
             .tapLoginButton()
             .verifyAlertAppeared(withTitle: "Error", text: "Incorrect login or password format")
     }
