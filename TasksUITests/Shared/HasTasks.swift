@@ -57,7 +57,7 @@ extension HasTasks {
     
     @discardableResult
     func assertTaskIs(_ status: TaskStatus, atIndex index: Int) -> Self {
-        XCTAssertEqual(taskCells.element(boundBy: index).checkmarkImage.stringValue, status.rawValue, "Checkmark image for task '\(index)' was not set correctly.")
+        XCTAssertEqual(taskCells.element(boundBy: index).checkmarkImage.stringValue, status.rawValue, "Checkmark image for task with index '\(index)' was not set correctly.")
         return self
     }
 
