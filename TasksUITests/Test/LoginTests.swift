@@ -25,7 +25,7 @@ class LoginTests: BaseTest {
         LoginRobot(app: app)
             .enterEmail(email: Constants.ValidCreds.username)
             .enterPassword(password: Constants.ValidCreds.password)
-            .verifyIfLoginButtonEnabled()
+            .assertIfLoginButtonEnabled()
             .tapLoginButton()
         
         LoginInProgressRobot(app: app)
@@ -40,15 +40,15 @@ class LoginTests: BaseTest {
         LoginRobot(app: app)
             .enterEmail(email: Constants.InvalidCreds.username)
             .enterPassword(password: Constants.InvalidCreds.password)
-            .verifyIfLoginButtonEnabled()
+            .assertIfLoginButtonEnabled()
             .tapLoginButton()
-            .verifyAlertAppeared(withTitle: "Error", text: "Incorrect login or password format")
+            .assertAlertAppeared(withTitle: "Error", text: "Incorrect login or password format")
     }
     
     func test_enterNoCreds_loginButtonDisabled() throws {
         LoginRobot(app: app)
             .enterEmail(email: "")
             .enterPassword(password: Constants.ValidCreds.password)
-            .verifyLoginButtonDisabled()
+            .assertLoginButtonDisabled()
     }
 }

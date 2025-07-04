@@ -54,13 +54,13 @@ class LoginRobot: BaseRobot {
     
     // MARK: Assertions
     @discardableResult
-    func verifyLoginButtonDisabled() -> Self {
+    func assertLoginButtonDisabled() -> Self {
         XCTAssertFalse(loginButton.isEnabled, "Login button is enabled, but it should be disabled")
         return self
     }
     
     @discardableResult
-    func verifyIfLoginButtonEnabled() -> Self {
+    func assertIfLoginButtonEnabled() -> Self {
         XCTAssertTrue(loginButton.isEnabled, "Login button is not enabled, but it should be enabled")
         return self
     }

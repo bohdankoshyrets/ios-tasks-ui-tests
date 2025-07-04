@@ -47,7 +47,7 @@ class TasksTests: BaseTest {
     func test_logOutShowsAlertThenLoginScreenAppears() throws {
         TasksRobot(app: app)
             .tapLogoutButton()
-            .verifyAlertAppeared(withTitle: nil, text: "Do you really want to logout?")
+            .assertAlertAppeared(withTitle: nil, text: "Do you really want to logout?")
             .confirmLogout()
         
         LoginRobot(app: app)

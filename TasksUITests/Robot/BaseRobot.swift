@@ -24,14 +24,14 @@ class BaseRobot {
     
     // TODO: Review
     @discardableResult
-    func verifyAlertAppeared(withTitle title: String?, text: String? = nil) -> Self {
+    func assertAlertAppeared(withTitle title: String?, text: String? = nil) -> Self {
         let alert = alerts.firstMatch
-        XCTAssertTrue(alert.waitForExistence(timeout: 5))
+        XCTAssertTrue(alert.waitForExistence(timeout: 5), "Alert did not appear in a reasonable amount of time")
         if let title = title {
-            XCTAssertTrue(alerts[title].waitForExistence(timeout: 5))
+            XCTAssertTrue(alerts[title].waitForExistence(timeout: 5), "Alert title: \(title) did not match")
         }
         if let text = text {
-            XCTAssertEqual(alert.staticTexts[text].label, text)
+            XCTAssertEqual(alert.staticTexts[text].label, text, "Alert text: \(text) did not match")
         }
         return self
     }

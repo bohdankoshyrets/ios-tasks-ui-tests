@@ -12,7 +12,7 @@ class BaseTest: XCTestCase {
     let app = XCUIApplication()
     
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
-        true
+        false
     }
     
     override func setUp() {

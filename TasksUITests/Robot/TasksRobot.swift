@@ -32,7 +32,6 @@ class TasksRobot: BaseRobot, HasTasks, HasToolbar, HasLogout {
         return self
     }
      
-    // TODO: Review
     @discardableResult
     func tapMoreInfoButton(atIndex index: Int) -> Self {
         let taskCell = taskCells.element(boundBy: index)
@@ -59,7 +58,7 @@ class TasksRobot: BaseRobot, HasTasks, HasToolbar, HasLogout {
 
     @discardableResult
     func assertCancelAllTasksButtonExists() -> Self {
-        XCTAssertTrue(cancelAllTasksButton.exists)
+        XCTAssertTrue(cancelAllTasksButton.exists, "Cancel All button doesn't exist")
         return self
     }
 }

@@ -67,5 +67,26 @@ class SubtasksTests: BaseTest {
             .tapCancelAllTasksButton()
             .assertAllTasksAre(.notCompleted)
     }
+     
+    func test_subtaskStatusPersistsWhenSubtaskScreenIsReopened() throws {
+        TasksRobot(app: app)
+            .tapMoreInfoButton(forTask: taskTitle)
+        
+        SubtasksRobot(app: app)
+            .assertAllTasksAre(.notCompleted)
+            .toggleTask(atIndex: 0)
+            .toggleTask(atIndex: 1)
+            .assertTaskIs(.completed, atIndex: 0)
+            .assertTaskIs(.completed, atIndex: 1)
+            .goBack()
+        
+        TasksRobot(app: app)
+            .assertAllTasksAre(.notCompleted)
+            .tapMoreInfoButton(forTask: taskTitle)
+
+        SubtasksRobot(app: app)
+            .assertTaskIs(.completed, atIndex: 0)
+            .assertTaskIs(.completed, atIndex: 1)
+    }
 
 }

@@ -51,17 +51,16 @@ extension HasTasks {
     @discardableResult
     func assertTaskIs(_ status: TaskStatus, withTitle title: String) -> Self {
         let taskCell = getTaskCell(withTitle: title)
-        XCTAssertTrue(taskCell.checkmarkImage.stringValue == status.rawValue)
+        XCTAssertEqual(taskCell.checkmarkImage.stringValue, status.rawValue, "Checkmark image for task '\(title)' was not set correctly.")
         return self
     }
     
     @discardableResult
     func assertTaskIs(_ status: TaskStatus, atIndex index: Int) -> Self {
-        XCTAssertTrue(taskCells.element(boundBy: index).checkmarkImage.stringValue == status.rawValue)
+        XCTAssertEqual(taskCells.element(boundBy: index).checkmarkImage.stringValue, status.rawValue, "Checkmark image for task '\(index)' was not set correctly.")
         return self
     }
 
-    // TODO: Add stringValue property
     @discardableResult
     func assertAllTasksAre(_ status: TaskStatus) -> Self {
         for taskCell in taskCells.allElementsBoundByIndex {

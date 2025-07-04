@@ -15,7 +15,7 @@ class SubtasksRobot: BaseRobot, HasTasks, HasToolbar, HasLogout {
     
     @discardableResult
     func assertSubtasksScreen() -> Self {
-        XCTAssertTrue(backButton.waitForExistence(timeout: 5))
+        XCTAssertTrue(backButton.waitForExistence(timeout: 5), "Back button not found")
         return self
     }
     

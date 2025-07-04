@@ -29,16 +29,15 @@ Please reachout Oksana (otolstykh@readdle.com) if you have any questions.
 3. Accessibility testing
 
 - Environment:
-iOS Simulator: iPhone 16 (18.5)
-iPadOS Simulator: iPad A16 (18.5)
+1. iOS Simulator: iPhone 16 (18.5)
+2. iPadOS Simulator: iPad A16 (18.5)
 
 - What parts of app will be tested:
-1. Login screen
-2. Task list screen
-3. Subtask list screen
+1. Screens: Login screen, Task list screen, Subtask list screen
+2. Layouts: iPhone, iPad
+2. Accessibility: Dynamic Type, Voice Over, Dark Mode legibility
 
 # LIST OF TEST CASES: 
-// Only summaries of tests: e.g. 
 Login screen:
 - Login button disabled if email and/or password field is empty
 - Error alert appears if email has an incorrect format 
@@ -51,7 +50,7 @@ Task list screen
 - Logout button shows logout confirmation alert, brings Login screen after confirmation
 - Complete All button checks all tasks as completed
 - Sort by Name button sorts tasks correctly
-- States of tasks persist when we navigate to subtasks screen and back // TODO:
+- States of tasks persist when we navigate to subtasks screen and back
 
 Subtasks list screen
 - Completing a task with subtasks also completes all subtasks
@@ -61,8 +60,6 @@ Subtasks list screen
 
 
 # LIST OF DISCOVERED ISSUES:
-// Only summaries of bug reports: e.g.
-
 - Login with valid creds can throw an error: "Unexpected login error occured"
 
 - 'Sort by Name' button can change the state of the tasks (from not completed to completed)
@@ -74,3 +71,6 @@ Subtasks list screen
 
 - In Dark mode some task titles are illegible
 - In Dark mode unchecked checkmarks are not visible
+
+- Task titles, some buttons and login screen elements do not have Dynamic Type support
+- Switch Control does not work correctly on tasks cells
