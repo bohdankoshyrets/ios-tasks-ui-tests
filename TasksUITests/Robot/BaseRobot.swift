@@ -22,7 +22,6 @@ class BaseRobot {
         return self
     }
     
-    // TODO: Review
     @discardableResult
     func assertAlertAppeared(withTitle title: String?, text: String? = nil) -> Self {
         let alert = alerts.firstMatch
